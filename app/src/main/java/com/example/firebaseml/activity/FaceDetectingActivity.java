@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.firebaseml.Helper.GraphicOverlay;
-import com.example.firebaseml.Helper.RectOverlay;
+import com.example.firebaseml.Helper.FaceRectOverlay;
 import com.example.firebaseml.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -137,7 +137,7 @@ public class FaceDetectingActivity extends AppCompatActivity {
         for (FirebaseVisionFace face : firebaseVisionFaces){
             Rect bounds =   face.getBoundingBox();
             //Draw Rectangle
-            RectOverlay rect = new RectOverlay(graphicOverlay,bounds);
+            FaceRectOverlay rect = new FaceRectOverlay(graphicOverlay,bounds);
             graphicOverlay.add(rect);
             count++;
         }

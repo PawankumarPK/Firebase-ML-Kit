@@ -39,6 +39,7 @@ dependencies {
     //Firebase ML Kit
     implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation 'com.google.firebase:firebase-ml-vision:23.0.0'
+    implementation 'com.google.firebase:firebase-ml-vision-image-label-model:18.0.0'
 
     //Spot Dialog
     implementation 'com.github.d-max:spots-dialog:1.1@aar'

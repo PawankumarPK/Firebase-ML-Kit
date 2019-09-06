@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.firebaseml">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,15 +20,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.FaceDetectingActivity" />
-
-      <!--  <meta-data
+<!--
+        //face Detection
+        <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-            android:value="face" />
--->
+            android:value="face" />-->
+<!--
+        //Text Recognization
+        <meta-data
+            android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+            android:value="ocr" />-->
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-            android:value="ocr" />
+            android:value="label" />
 
 
 

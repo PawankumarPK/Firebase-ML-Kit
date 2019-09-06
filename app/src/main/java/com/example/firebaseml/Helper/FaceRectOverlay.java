@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 
-public class RectOverlay extends GraphicOverlay.Graphic {
+public class FaceRectOverlay extends GraphicOverlay.Graphic {
 
     private int RECT_COLOR = Color.RED;
     private float STROKE_WIDTH = 4.0f;
@@ -15,7 +15,7 @@ public class RectOverlay extends GraphicOverlay.Graphic {
     private GraphicOverlay graphicOverlay;
     private Rect rect;
 
-    public RectOverlay(GraphicOverlay graphicOverlay, Rect rect) {
+    public FaceRectOverlay(GraphicOverlay graphicOverlay, Rect rect) {
         super(graphicOverlay);
 
         rectPaint = new Paint();
