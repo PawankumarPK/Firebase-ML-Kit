@@ -34,11 +34,10 @@
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="ocr" />
         -->
-        <!--
         //Image Labelling
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-            android:value="label" />-->
+            android:value="label" />
 
     </application>
 
