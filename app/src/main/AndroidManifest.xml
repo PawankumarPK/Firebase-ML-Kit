@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.FaceDetectingActivity" />
-        <activity android:name=".activity.TextRecogniseActivity"></activity>
+        <activity android:name=".activity.TextRecogniseActivity"/>
+
         <!--
         //face Detection
         <meta-data
@@ -33,9 +34,12 @@
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="ocr" />
         -->
+        <!--
+        //Image Labelling
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-            android:value="label" />
+            android:value="label" />-->
+
     </application>
 
 </manifest>
