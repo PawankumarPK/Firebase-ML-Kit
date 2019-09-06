@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.firebaseml.Helper.GraphicOverlay;
+import com.example.firebaseml.Helper.TextGraphic;
 import com.example.firebaseml.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +30,7 @@ import com.wonderkiln.camerakit.CameraView;
 import com.wonderkiln.camerakit.OnCameraKitEvent;
 
 import java.util.Arrays;
+import java.util.List;
 
 import dmax.dialog.SpotsDialog;
 
@@ -129,11 +133,37 @@ public class TextRecogniseActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Log.d("MLKitError",e.getMessage());
 
                     }
                 });
     }
 
     private void drawTextResult(FirebaseVisionText firebaseVisionText) {
+
+        //Get Text block
+        List<FirebaseVisionText.TextBlock> blocks = firebaseVisionText.getTextBlocks();
+        if (blocks.size() == 0){
+            Toast.makeText(this, "No Text Found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        graphicOverlay.clear();
+
+        for (int i = 0; i<blocks.size(); i++){
+            //Get lines
+            List<FirebaseVisionText.Line> lines = blocks.get(i).getLines();
+
+            for (int j = 0; j < lines.size(); j++){
+                List<FirebaseVisionText.Element> elements= lines.get(i).getElements();
+
+                for (int k = 0; k < elements.size(); k++){
+                    //Draw Elements
+                    TextGraphic textGraphic = new TextGraphic(graphicOverlay,elements.get(k));
+                    graphicOverlay.add(textGraphic);
+                }
+            }
+        }
+        //Dismiss Dialog
+        waitingDialog.dismiss();
     }
 }
